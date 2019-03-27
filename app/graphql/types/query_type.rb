@@ -9,5 +9,14 @@ module Types
     def test_field
       "Hello World!"
     end
+
+    field :todo_list, TodoListType, null: true do
+      description "Find a todo_list by ID"
+      argument :id, ID, required: true
+    end
+
+    def todo_list(id:)
+      TodoList.find id
+    end
   end
 end
